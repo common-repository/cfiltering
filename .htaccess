@@ -1,0 +1,28 @@
+Order Deny,Allow
+Deny from all
+
+#allow access to assets
+<FilesMatch "^(.+)\.(css|js|woff|woff2|ttf)$">
+	Allow from all
+</FilesMatch>
+
+#allow access to any image
+<FilesMatch "^(.+)\.(png|gif|jpg|jpeg|ico)$">
+	Allow from all
+</FilesMatch>
+
+#allow access to update.json
+<FilesMatch "^update\.json$">
+	Allow from all
+</FilesMatch>
+
+#allow access to ajax
+<FilesMatch "^ajax$">
+	Allow from all
+    RewriteRule ^(.*)$ /index.php [L]
+</FilesMatch>
+
+#allow access to ajax.php
+<FilesMatch "^ajax\.php$">
+	Allow from all
+</FilesMatch>
